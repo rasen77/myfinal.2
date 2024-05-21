@@ -1,0 +1,69 @@
+/* Define a classe 'montserrat' para a fonte 'Montserrat' */
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Você pode ajustar o peso da fonte conforme necessário */
+    font-style: normal;
+  }
+  
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      border-radius: 10px; /* Adicionando o border-radius ao corpo do documento */
+  }
+  
+  header {
+      background-color: #FF0000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+  }
+  
+  header h1 {
+      font-size: 36px;
+  }
+  
+  .login-container {
+      width: 100vw; /* Preencher toda a largura da tela */
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+      width: calc(100% - 10px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+  }
+  
+  button {
+      width: 100%;
+      padding: 10px 20px;
+      background-color: #FF0000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+  
+  button:hover {
+      background-color: #FF6666;
+  }
+  
+  input[type="text"]::placeholder,
+  input[type="password"]::placeholder {
+      color: #999;
+  }
+  
+  small {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.8em;
+      color: #666;
+  }
+  

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio</title>
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        .menu-section {
+            display: none;
+            list-style: none;
+            padding: 0;
+        }
+
+        .ativo {
+            display: block;
+        }
+
+        .menu-img {
+            max-width: 200px; 
+            height: auto;
+            cursor: pointer; 
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px auto;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .menu-content {
+            width: 70%; 
+        }
+
+        .menu-options {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-options li {
+            margin-right: 20px;
+        }
+
+        .menu-options li:last-child {
+            margin-right: 0;
+        }
+
+        .btn-add {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-add:hover {
+            background-color: #45a049;
+        }
+
+        .btn-quantidade {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .btn-quantidade:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="montserrat">MyMesa</h1>
+    </header>
+
+    <div class="menu">
+        <div class="menu-options">
+            <ul>
+                <li><a href="#" onclick="mostrarLista('bebidas')"><img class="menu-img" src="img/bebidas.png" alt="Bebidas"></a></li>
+                <li><a href="#" onclick="mostrarLista('pizzas')"><img class="menu-img" src="img/pizza.png" alt="Pizzas"></a></li>
+                <li><a href="#" onclick="mostrarLista('acompanhamentos')"><img class="menu-img" src="img/acompanhamentos.png" alt="Acompanhamentos"></a></li>
+                <li><a href="#" onclick="mostrarLista('sobremesas')"><img class="menu-img" src="img/sobremesas.png" alt="Sobremesas"></a></li>
+            </ul>
+        </div>
+
+        <div class="menu-content">
+            <div id="bebidas" class="menu-section ativo">
+                <h2>Bebidas</h2>
+                <ul>
+                    <li id="item-refrigerante">Refrigerante - R$ 5,00 <button class="btn-add" onclick="adicionarAoPedido('Refrigerante', 5)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Refrigerante')">-</button> <span id="quantidade-refrigerante">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Refrigerante', 5)">+</button></li>
+                    <li id="item-agua-mineral">Água mineral - R$ 3,00 <button class="btn-add" onclick="adicionarAoPedido('Água mineral', 3)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Água mineral')">-</button> <span id="quantidade-agua-mineral">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Água mineral', 3)">+</button></li>
+                    <li id="item-suco-natural">Suco natural - R$ 7,00 <button class="btn-add" onclick="adicionarAoPedido('Suco natural', 7)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Suco natural')">-</button> <span id="quantidade-suco-natural">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Suco natural', 7)">+</button></li>
+                </ul>
+            </div>
+
+            <div id="pizzas" class="menu-section">
+                <h2>Pizzas</h2>
+                <ul>
+                    <li id="item-margherita">Margherita - R$ 25,00 <button class="btn-add" onclick="adicionarAoPedido('Margherita', 25)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Margherita')">-</button> <span id="quantidade-margherita">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Margherita', 25)">+</button></li>
+                    <li id="item-calabresa">Calabresa - R$ 28,00 <button class="btn-add" onclick="adicionarAoPedido('Calabresa', 28)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Calabresa')">-</button> <span id="quantidade-calabresa">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Calabresa', 28)">+</button></li>
+                    <li id="item-frango-catupiry">Frango com Catupiry - R$ 30,00 <button class="btn-add" onclick="adicionarAoPedido('Frango com Catupiry', 30)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Frango com Catupiry')">-</button> <span id="quantidade-frango-catupiry">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Frango com Catupiry', 30)">+</button></li>
+                </ul>
+            </div>
+
+            <div id="acompanhamentos" class="menu-section">
+                <h2>Acompanhamentos</h2>
+                <ul>
+                    <li id="item-batata-frita">Batata frita - R$ 15,00 <button class="btn-add" onclick="adicionarAoPedido('Batata frita', 15)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Batata frita')">-</button> <span id="quantidade-batata-frita">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Batata frita', 15)">+</button></li>
+                    <li id="item-salada-verde">Salada verde - R$ 12,00 <button class="btn-add" onclick="adicionarAoPedido('Salada verde', 12)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Salada verde')">-</button> <span id="quantidade-salada-verde">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Salada verde', 12)">+</button></li>
+                    <li id="item-arroz-branco">Arroz branco - R$ 10,00 <button class="btn-add" onclick="adicionarAoPedido('Arroz branco', 10)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Arroz branco')">-</button> <span id="quantidade-arroz-branco">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Arroz branco', 10)">+</button></li>
+                </ul>
+            </div>
+
+            <div id="sobremesas" class="menu-section">
+                <h2>Sobremesas</h2>
+                <ul>
+                    <li id="item-pudim-leite">Pudim de leite - R$ 8,00 <button class="btn-add" onclick="adicionarAoPedido('Pudim de leite', 8)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Pudim de leite')">-</button> <span id="quantidade-pudim-leite">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Pudim de leite', 8)">+</button></li>
+                    <li id="item-mousse-chocolate">Mousse de chocolate - R$ 10,00 <button class="btn-add" onclick="adicionarAoPedido('Mousse de chocolate', 10)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Mousse de chocolate')">-</button> <span id="quantidade-mousse-chocolate">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Mousse de chocolate', 10)">+</button></li>
+                    <li id="item-sorvete">Sorvete - R$ 6,00 <button class="btn-add" onclick="adicionarAoPedido('Sorvete', 6)">Adicionar</button> <button class="btn-quantidade" onclick="removerDoPedido('Sorvete')">-</button> <span id="quantidade-sorvete">0</span> <button class="btn-quantidade" onclick="adicionarAoPedido('Sorvete', 6)">+</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button id="ver-pedidos" onclick="verPedidos()">Pedidos</button>
+    </div>
+
+    <script>
+        var pedido = [];
+
+        function mostrarLista(id) {
+            var listas = document.querySelectorAll('.menu-section');
+            listas.forEach(function(lista) {
+                lista.classList.remove('ativo');
+            });
+
+            var listaSelecionada = document.getElementById(id);
+            listaSelecionada.classList.add('ativo');
+        }
+
+        function adicionarAoPedido(prato, preco) {
+            var index = pedido.findIndex(item => item.prato === prato);
+
+            if (index !== -1) {
+                pedido[index].quantidade++;
+            } else {
+                pedido.push({ prato: prato, preco: preco, quantidade: 1 });
+            }
+
+            atualizarQuantidade(prato);
+            alert(prato + " adicionado ao pedido!");
+        }
+
+        function removerDoPedido(prato) {
+            var index = pedido.findIndex(item => item.prato === prato);
+
+            if (index !== -1 && pedido[index].quantidade > 0) {
+                pedido[index].quantidade--;
+                atualizarQuantidade(prato);
+            }
+        }
+
+        function atualizarQuantidade(prato) {
+            var quantidadeSpan = document.getElementById('quantidade-' + prato.toLowerCase().replace(/\s/g, '-'));
+
+            if (quantidadeSpan) {
+                var index = pedido.findIndex(item => item.prato === prato);
+                quantidadeSpan.textContent = pedido[index].quantidade;
+            }
+        }
+
+        function verPedidos() {
+            window.location.href = "pedidos.html?pedido=" + JSON.stringify(pedido);
+        }
+    </script>
+</body>
+</html>
